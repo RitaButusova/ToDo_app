@@ -171,7 +171,7 @@ function removeTaskFromLocalStorage(taskElement) {
    }
 
    // фільтруємо таски і повертаємо ті, які проходять умову
-   const searchId = taskElement.dataset.id;
+   const searchId = taskElement.parentElement.dataset.id;
     const filteredTasks = tasks.filter((task) => {
         if(task.idVal !== searchId) {
             return task
@@ -228,7 +228,7 @@ function redactTask(event) {
         const redactEl = event.target.parentElement;
         //redactEl.innerText = redactValue;
         redactEl.parentElement.firstChild.replaceWith(redactValue);
-        const idVal = redactEl.dataset.id;
+        const idVal = redactEl.parentElement.dataset.id;
         console.log(idVal)
     
         // оголошуємо змінну яка буде використовуватись для списку завдань
